@@ -4,7 +4,6 @@ import com.sparta.memo.dto.MemoRequestDto;
 import com.sparta.memo.dto.MemoResponseDto;
 import com.sparta.memo.entity.Memo;
 import com.sparta.memo.repository.MemoRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
@@ -14,9 +13,9 @@ public class MemoService {
     private final MemoRepository memoRepository;
 
     // 생성자: MemoService(JdbcTemplate jdbcTemplate)가 생성될 때 호출됨
-    public MemoService(JdbcTemplate jdbcTemplate) {
+    public MemoService(MemoRepository memoRepository) {
         // 멤버 변수 생성
-        this.memoRepository = new MemoRepository(jdbcTemplate);
+        this.memoRepository = memoRepository;
     }
 
     public MemoResponseDto createMemo(MemoRequestDto requestDto) {
