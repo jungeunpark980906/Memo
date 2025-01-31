@@ -4,15 +4,19 @@ import com.sparta.memo.dto.MemoRequestDto;
 import com.sparta.memo.dto.MemoResponseDto;
 import com.sparta.memo.entity.Memo;
 import com.sparta.memo.repository.MemoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MemoService {
 
     // 멤버 변수 선언
     private final MemoRepository memoRepository;
 
     // 생성자: MemoService(JdbcTemplate jdbcTemplate)가 생성될 때 호출됨
+    @Autowired
     public MemoService(MemoRepository memoRepository) {
         // 멤버 변수 생성
         this.memoRepository = memoRepository;
