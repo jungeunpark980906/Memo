@@ -36,13 +36,14 @@ public class MemoService {
     }
 
 
+
     public List<MemoResponseDto> getMemos() {
         // DB 조회
-        return memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
-        //findAll로 가져와서
-        //stream.map(MemoResponseDTO::new)를 사용하여 하나씩 MemoResponseDTO로 변경하고
-        //toList()를 이용하여 list타입으로 바꿔준다
+//        return memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
+        return memoRepository.findAllByOrderByModifiedAtDesc().stream().map(MemoResponseDto::new).toList();
+
     }
+
 
     //update는 변경감지를 위해 @Transaction을 걸어줘야함
     @Transactional
