@@ -30,7 +30,11 @@ public class MemoController {
 
         return memoService.getMemos(); //가져오는 메모들이라 보내는 데이터x
 
+    }
 
+    @GetMapping("/memos/contents")
+    public List<MemoResponseDto> getMemosByKeyword(@RequestParam String keyword){
+        return memoService.getMemosByKeyword(keyword);
     }
 
     @PutMapping("/memos/{id}")
