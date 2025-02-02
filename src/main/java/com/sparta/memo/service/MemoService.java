@@ -44,7 +44,7 @@ public class MemoService {
         //toList()를 이용하여 list타입으로 바꿔준다
     }
 
-    //update는 변경감지를 위해 @Transaction을 걸어줘야함!!!
+    //update는 변경감지를 위해 @Transaction을 걸어줘야함
     @Transactional
     public Long updateMemo(Long id, MemoRequestDto requestDto) {
 
